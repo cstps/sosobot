@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <h2>소봇에 온걸 환영합니다.</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="warning">소봇에 온걸 환영합니다.</h2>
+    <div class="container my-3">
+        <table class="table">
+            <thead>
+            <tr class="table-dark">
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성일시</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for key in content %}
+            <tr>
+                <td> {{key}}</td>
+                <td>{{items }}</td>
+                <td>시간1</td>        
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
