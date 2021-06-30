@@ -11,10 +11,10 @@
             </tr>
             </thead>
             <tbody>
-                {% for key in content %}
+                {% for key, value in content.items %}
             <tr>
                 <td> {{key}}</td>
-                <td>{{items }}</td>
+                <td>{{value }}</td>
                 <td>시간1</td>        
             </tr>
                 {% endfor %}
