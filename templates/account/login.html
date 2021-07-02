@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-3">
-    <form method="post" class="post-form" action="{% url 'common:login' %}">
+    <form method="post" class="post-form" action="{% url 'account:login' %}">
         {% csrf_token %}
         {% include "form_errors.html" %}
         <div class="form-group">
@@ -14,7 +14,9 @@
             <input type="password" class="form-control" name="password" id="password"
                    value="{{ form.password.value|default_if_none:'' }}">
         </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
+        <button type="submit" class="btn btn-dark rounded-pill col-3 mt-4">로그인</button>
+        <a href="{% url 'account:signup' %}" class="btn btn-dark rounded-pill col-3 mt-4">회원가입</a>
     </form>
+    
 </div>
 {% endblock %}
