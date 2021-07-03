@@ -11,10 +11,10 @@
                아이디 :  {{target_user.username}}
             </h2>
             <p>
-                가입일 : {{target_user.joined_date}}
+                가입일 : {{target_user.date_joined}}
             </p>
 	    </div>
-        <a class="nav-link" href="{% url 'account:userupdate' pk=user.pk %}">회원정보 수정</a>
+
 </div>
 
 {% endblock %}

@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# djagon debug tools install
+
 
 # Application definition
 
@@ -39,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd part application
     'bootstrap4',
-    
+
+    # pip install django-debug-toolbar
+    'debug_toolbar',
     # local application
     'account.apps.AccountConfig',
 ]
@@ -52,6 +56,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # debug-toolbar
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'sosobot.urls'
@@ -138,3 +145,12 @@ LOGOUT_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 미디어 저장 경로 지정
+import os
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
+
+# debug setting을 위한 IPS 추가
+
+INTERNAL_IPS =('127.0.0.1')

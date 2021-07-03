@@ -9,18 +9,6 @@ from account.forms import CreateUserForm
 
 # Create your views here.
 
-# 로그인 
-# def login(request):
-#     if request.method == "POST":
-#         form = AuthenticationForm(request, request.POST)
-#         if form.is_valid():
-#             user_login(request, form.get_user())
-#             return redirect('index')
-#         return redirect('account:login')
-#     else:
-#         form = AuthenticationForm()
-#         return render(request, 'account/login.html', {'form': form})
-
 # 회원가입하기
 def signup(request):
     # 계정 생성
@@ -36,7 +24,8 @@ def signup(request):
             return redirect('index')
     else:
         form = CreateUserForm()
-        return render(request, 'account/signup.html', {'form':form})
+        
+    return render(request, 'account/signup.html', {'form':form})
 
 # 사용자 정보 보기
 class account_details(DetailView):
@@ -44,24 +33,4 @@ class account_details(DetailView):
     context_object_name = 'target_user'
     template_name = 'account/account_details.html'
 
-# 사용자 정보 수정
-def userupdate(request):
-    if request.method =="GET":
-        return render(request, 'account/user_info_modify.html',)
-    elif request.method == 'POST':
-        user = request.user
 
-        profile_msg = request.POST.get('profile_msg')
-        email = request.POST.get('email')
-        name = request.POST.get('name')
-        new_user_pw = request.POST.get('new_user_pw')
-
-        user.profile_msg = profile_msg
-        user.email = email
-        user.first_name = name
-        user.set_password(new_user_pw)
-
-        user.save()
-
-
-        return redirect('instagram:list', user.username)
